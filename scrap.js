@@ -36,8 +36,8 @@ function getLinks(html) {
     for (var i = 0; i < doc_links.length; i++) {
         scrap_doc(doc_links[i], function() {
             scrapped++;
-            console.log(scrapped);
-            if (scrapped > doc_links.length - 2) {
+            console.log("scrapped: " + scrapped);
+            if (scrapped > doc_links.length - 1) {
                 fs.writeFileSync("./docs/p5doc.json", JSON.stringify(documentation));
             }
         });
@@ -57,10 +57,6 @@ function scrap_doc(link, callback) {
             getData(html);
         }
     });
-
-    // function escapeRegExp(str) {
-    //     return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-    // }
 
     function getData(html) {
         var $ = cheerio.load(html);
@@ -88,8 +84,6 @@ function scrap_doc(link, callback) {
         documentation.push(doc);
         callback();
 
-        //fs.writeFileSync("./docs/" + doc.name + ".json", JSON.stringify(doc));
-        //console.log(doc);
     }
 
 }
