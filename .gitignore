@@ -16,3 +16,7 @@ bower_components
 
 #Ignore the doc builder
 docs/
+
+#Ignore the image folder
+imgs/
+

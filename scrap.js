@@ -68,6 +68,7 @@ function scrap_doc(link, callback) {
         doc.examples = [];
         $('.example').each(function(i, elem) {
             doc.examples.push($(this).text());
+            console.log($(this).text());
         });
         doc.examples_img = [];
         $('.example img').each(function(i, elem) {
